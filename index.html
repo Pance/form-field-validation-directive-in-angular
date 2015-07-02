@@ -1,0 +1,59 @@
+<html ng-app="someApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+    <script src="some-controller.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div ng-controller="SomeController as vm">
+      <h1>
+        Hello {{personData.name}}<span ng-if="personData.age">, age {{personData.age}}</span>
+      </h1>
+        <div ng-form="someForm">
+          <h2>Name</h2>
+          <span>(Required, maxlength = 25)</span>
+          <div ng-class="{'has-error': someForm.name.$invalid && someForm.name.$dirty}">
+            <div class="help-block" ng-if="someForm.name.$invalid && someForm.name.$dirty">
+              <p ng-if="someForm.name.$error.required">
+                Name is required.</p>
+              <p ng-if="someForm.name.$error.maxlength">
+                Name must be less than 25 chars.</p>
+            </div>
+            <input type="text" name="name" class="form-control"
+                   ng-model="personData.name"
+                   ng-maxlength="25"
+                   required>
+          </div>
+
+          <h2>Age</h2>
+          <span>(must be a positive number)</span>
+          <div ng-class="{'has-error': someForm.age.$invalid && someForm.age.$dirty}">
+            <div class="help-block" ng-if="someForm.age.$invalid && someForm.age.$dirty">
+              <p ng-if="someForm.age.$error.number">
+                Age must be a number.</p>
+              <p ng-if="someForm.age.$error.min">
+                Age must be larger than 0.</p>
+            </div>
+            <input type="number" name="age" class="form-control"
+                   ng-model="personData.age"
+                   min="0">
+          </div>
+
+          <h2>Email</h2>
+          <span>(format)</span>
+          <div ng-class="{'has-error': someForm.email.$invalid && someForm.email.$dirty}">
+            <div class="help-block" ng-if="someForm.email.$invalid && someForm.email.$dirty">
+              <p ng-if="someForm.email.$invalid">
+                Email must be a valid format.</p>
+            </div>
+            <input type="email" name="email" class="form-control"
+                   ng-model="personData.email">
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
