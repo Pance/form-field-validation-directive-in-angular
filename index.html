@@ -5,6 +5,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
     <script src="some-controller.js"></script>
+    <script src="field-validation-directive.js"></script>
   </head>
   <body>
     <div class="container">
@@ -52,6 +53,14 @@
             <input type="email" name="email" class="form-control"
                    ng-model="personData.email">
           </div>
+
+          <h2>Email (with custom directive)</h2>
+          <span>(format)</span>
+          <form-field-validation form-field="someForm.email2">
+            <input type="email" name="email2" class="form-control"
+                   ng-model="personData.email2">
+          </form-field-validation>
+
         </div>
       </div>
     </div>
