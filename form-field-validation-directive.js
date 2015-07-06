@@ -1,5 +1,5 @@
 angular.module('someApp')
-  .directive('formFieldValidation', function($compile) {
+  .directive('formFieldValidation', function() {
     return {
       restrict: 'E',
       transclude: 'true',
