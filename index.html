@@ -65,8 +65,37 @@
             <input type="email" name="email2" class="form-control"
                    ng-model="personData.email2">
           </form-field-validation>
-
         </div>
+        <br><br><br><br><br>
+
+        <div class="panel panel-default">
+          <h1>A nice form</h1>
+          <div class="panel-body" ng-form="niceForm">
+            <div class="form-horizontal">
+              <!--name input-->
+              <div class="form-group">
+                <label for="nameInput" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <form-field-validation form-field="niceForm.name">
+                    <validation-error-messages>
+                      <invalid-message if-field="$error.required">
+                        Name is required!</invalid-message>
+                      <invalid-message if-field="$error.maxlength">
+                        Name must be less than 25 characters!</invalid-message>
+                    </validation-error-messages>
+                    <input id="nameInput" type="text" name="name" class="form-control" ng-model="personData.email"
+                           ng-maxlength="25" required>
+                  </form-field-validation>
+                </div>
+              </div>
+              <!--age input-->
+              <div class="form-group">
+
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </body>
