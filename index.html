@@ -59,7 +59,8 @@
           <span>(format)</span>
           <form-field-validation form-field="someForm.email2">
             <validation-error-messages>
-              An error message
+              <invalid-message if-field="$invalid">
+                Email is invalid!</invalid-message>
             </validation-error-messages>
             <input type="email" name="email2" class="form-control"
                    ng-model="personData.email2">

@@ -47,4 +47,31 @@ angular.module('someApp')
         }
       }
     };
+  })
+  .directive('invalidMessage', function() {
+    return {
+      restrict: 'E',
+      transclude: 'true',
+      templateUrl: 'invalid-message.html',
+      scope: false,
+      link: function(scope, element, attrs) {
+        var formFieldSplit = scope.$parent.formField.split(".");
+        var formName = formFieldSplit[0];
+        var fieldName = formFieldSplit[1];
+
+        var ifField = attrs.ifField;
+
+        scope.$watch("$parent."+formName+"."+fieldName+"."+ifField, determineErrorMessageVisibility);
+
+        function determineErrorMessageVisibility(newValue) {
+          if(!_.isUndefined(newValue)) {
+            if(newValue) {
+              element.removeAttr("hidden");
+            } else {
+              element.attr("hidden", "");
+            }
+          }
+        }
+      }
+    };
   });
