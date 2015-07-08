@@ -60,16 +60,14 @@ angular.module('someApp')
         var fieldName = formFieldSplit[1];
 
         var ifField = attrs.ifField;
-
         scope.$watch("$parent."+formName+"."+fieldName+"."+ifField, determineErrorMessageVisibility);
 
         function determineErrorMessageVisibility(newValue) {
-          if(!_.isUndefined(newValue)) {
-            if(newValue) {
-              element.removeAttr("hidden");
-            } else {
-              element.attr("hidden", "");
-            }
+          if(_.isUndefined(newValue)) {
+            // undefined basically means there is NO error, so hide the error message
+            element.attr("hidden", "");
+          } else {
+            element.removeAttr("hidden");
           }
         }
       }
