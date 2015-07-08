@@ -4,8 +4,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script>
+    <script src="http://underscorejs.org/underscore-min.js"></script>
     <script src="some-controller.js"></script>
-    <script src="field-validation-directive.js"></script>
+    <script src="form-field-validation-directive.js"></script>
   </head>
   <body>
     <div class="container">
@@ -57,6 +58,9 @@
           <h2>Email (with custom directive)</h2>
           <span>(format)</span>
           <form-field-validation form-field="someForm.email2">
+            <validation-error-messages>
+              An error message
+            </validation-error-messages>
             <input type="email" name="email2" class="form-control"
                    ng-model="personData.email2">
           </form-field-validation>
