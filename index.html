@@ -90,7 +90,19 @@
               </div>
               <!--age input-->
               <div class="form-group">
-
+                <label for="ageInput" class="col-sm-2 control-label">Age</label>
+                <div class="col-sm-10">
+                  <form-field-validation form-field="niceForm.age">
+                    <validation-error-messages>
+                      <invalid-message if-field="$error.number">
+                        Age must be a number!</invalid-message>
+                      <invalid-message if-field="$error.min">
+                        Age must be larger than 0!</invalid-message>
+                    </validation-error-messages>
+                    <input id="ageInput" type="number" name="age" class="form-control" ng-model="personData.age"
+                            min="0">
+                  </form-field-validation>
+                </div>
               </div>
             </div>
           </div>
