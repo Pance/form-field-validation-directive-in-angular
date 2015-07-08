@@ -54,17 +54,6 @@
             <input type="email" name="email" class="form-control"
                    ng-model="personData.email">
           </div>
-
-          <h2>Email (with custom directive)</h2>
-          <span>(format)</span>
-          <form-field-validation form-field="someForm.email2">
-            <validation-error-messages>
-              <invalid-message if-field="$invalid">
-                Email is invalid!</invalid-message>
-            </validation-error-messages>
-            <input type="email" name="email2" class="form-control"
-                   ng-model="personData.email2">
-          </form-field-validation>
         </div>
         <br><br><br><br><br>
 
@@ -101,6 +90,20 @@
                     </validation-error-messages>
                     <input id="ageInput" type="number" name="age" class="form-control" ng-model="personData.age"
                             min="0">
+                  </form-field-validation>
+                </div>
+              </div>
+              <!--email input-->
+              <div class="form-group">
+                <label for="emailInput" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <form-field-validation form-field="niceForm.email">
+                    <validation-error-messages>
+                      <invalid-message if-field="$invalid">
+                        Email must be valid!</invalid-message>
+                    </validation-error-messages>
+                    <input id="emailInput" type="email" name="email" class="form-control"
+                           ng-model="personData.email">
                   </form-field-validation>
                 </div>
               </div>
